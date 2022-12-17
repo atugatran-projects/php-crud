@@ -2,7 +2,9 @@ version: '3.9'
 
 services:
   php-env:
+    container_name: Php_server
     build: .
+    image: php-server
     volumes:
       - .:/var/www/html
       # serve php file
@@ -10,6 +12,7 @@ services:
       - 81:80
   # Server name
   mysql:
+    container_name: MySql_server
     image: mysql:latest
     command: --default-authentication-plugin=mysql_native_password
     restart: always
@@ -17,6 +20,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
 
   phpmyadmin:
+    container_name: PhpMyAdmin_server
     image: phpmyadmin:latest
     restart: always
     # Phpmyadmin port
