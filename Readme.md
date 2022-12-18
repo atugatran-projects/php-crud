@@ -9,7 +9,7 @@ CREATE DATABASE notes
 ### Create Table
 
 ```
-CREATE TABLE `notes`.`notes` (`S.no` INT NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `description` VARCHAR(255) NOT NULL , PRIMARY KEY (`S.no`)) ENGINE = InnoDB;
+CREATE TABLE `notes`.`notes` (`sno` INT NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `description` VARCHAR(255) NOT NULL , `tstamp` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) , PRIMARY KEY (`sno`)) ENGINE = InnoDB;
 ``` 
 
 # Docker

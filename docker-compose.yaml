@@ -2,29 +2,29 @@ version: '3.9'
 
 services:
   php-env:
-    container_name: Php_server
+    container_name: php
     build: .
-    image: php-server
+    image: php:8.0-apache
     volumes:
       - .:/var/www/html
       # serve php file
     ports:
-      - 81:80
+      - 3000:80
   # Server name
   mysql:
-    container_name: MySql_server
-    image: mysql:latest
+    container_name: mysql
+    image: mysql:8.0.31
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
 
   phpmyadmin:
-    container_name: PhpMyAdmin_server
-    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    image: phpmyadmin:5.2.0
     restart: always
     # Phpmyadmin port
     ports:
-      - 80:80
+      - 3001:80
     environment:
       - PMA_ARBITRARY=1
